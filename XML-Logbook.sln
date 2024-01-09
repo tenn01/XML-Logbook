@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XML-LogbookMaui", "XML-LogbookMaui\XML-LogbookMaui.csproj", "{05AFF430-EEED-44F3-9515-6D1A281B42FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBook.Cli", "LogBook.Cli\LogBook.Cli.csproj", "{AE3CFE25-0258-4320-A16D-2AC775889F8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05AFF430-EEED-44F3-9515-6D1A281B42FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AE3CFE25-0258-4320-A16D-2AC775889F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3CFE25-0258-4320-A16D-2AC775889F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3CFE25-0258-4320-A16D-2AC775889F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3CFE25-0258-4320-A16D-2AC775889F8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB189B5B-5229-4F67-9725-03C2330E52FD}
+	EndGlobalSection
+EndGlobal
