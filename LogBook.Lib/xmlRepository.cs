@@ -26,6 +26,8 @@ namespace LogBook.Lib
         {
             var entries = from entry in _root.Descendants("entry")
                           select entry;
+            throw new NotImplementedException();
+            // return entries.ToList<Entry>();
             // TODO 
             // - Objekt erstellen
             // - Liste zurückgeben
