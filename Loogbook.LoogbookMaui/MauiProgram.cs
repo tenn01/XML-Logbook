@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Loogbook.LoogbookMaui.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace Loogbook.LoogbookMaui
 {
@@ -15,6 +16,8 @@ namespace Loogbook.LoogbookMaui
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<MainPage>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
