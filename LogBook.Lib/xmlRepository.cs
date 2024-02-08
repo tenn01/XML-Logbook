@@ -73,21 +73,24 @@ namespace LogBook.Lib
 
         public Entry? Find(string id)
         {
-            var item = (from e in _rootElement.Descendants("Entry")
-                        where (string)e.Attribute("id") == entry.ID
-                        select  new Entry (
-                            Convert.ToDateTime(Entry.Attribute("start").Value),
-                              Convert.ToDateTime(Entry.Attribute("end").Value),
-                              (int)Entry.Attribute("startKm"),
-                              (int)Entry.Attribute("endKm"),
-                              Entry.Attribute("numberPlate").Value,
-                              Entry.Attribute("from").Value,
-                              Entry.Attribute("to").Value,
-                              Entry.Attribute("id").Value
+            var item = (from entry in _rootElement.Descendants("entry")
+                        where (string)entry.Attribute("id") == id
+                        select new Entry(
+                            Convert.ToDateTime(entry.Attribute("start").Value),
+                              Convert.ToDateTime(entry.Attribute("end").Value),
+                              (int)entry.Attribute("startKm"),
+                              (int)entry.Attribute("endKm"),
+                              entry.Attribute("numberPlate").Value,
+                              entry.Attribute("from").Value,
+                              entry.Attribute("to").Value,
+                              entry.Attribute("id").Value
                             )
                         {
-                            Description = Entry.Value
-                        };
+                            Description = entry.Value
+                        }
+                        ).FirstOrDefault();
+
+
             return item;
         }
 
