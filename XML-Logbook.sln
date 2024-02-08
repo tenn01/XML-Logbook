@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBook.Cli", "LogBook.Cli\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogBook.Lib", "LogBook.Lib\LogBook.Lib.csproj", "{DC319ACA-A0E2-48F3-815D-AA62BD929A4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loogbook.LoogbookMaui", "Loogbook.LoogbookMaui\Loogbook.LoogbookMaui.csproj", "{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{DC319ACA-A0E2-48F3-815D-AA62BD929A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC319ACA-A0E2-48F3-815D-AA62BD929A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC319ACA-A0E2-48F3-815D-AA62BD929A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BEEF62-E1F7-4FFA-88F4-47E47751482D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
