@@ -51,6 +51,14 @@ namespace LogBook.Lib
             return false;
 
         }
+
+        public Entry? Find(string id)
+        {
+            var entries = from e in  list where e.ID == id
+                          select e;
+            return entries.FirstOrDefault();
+        }
+
         public MemoryRepository(string path)
         {
             

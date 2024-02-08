@@ -73,18 +73,46 @@ namespace LogBook.Lib
 
         public Entry? Find(string id)
         {
-            throw new NotImplementedException();
+            var item = (from e in _rootElement.Descendants("Entry")
+                        where (string)e.Attribute("id") == entry.ID
+                        select  new Entry (
+                            Convert.ToDateTime(Entry.Attribute("start").Value),
+                              Convert.ToDateTime(Entry.Attribute("end").Value),
+                              (int)Entry.Attribute("startKm"),
+                              (int)Entry.Attribute("endKm"),
+                              Entry.Attribute("numberPlate").Value,
+                              Entry.Attribute("from").Value,
+                              Entry.Attribute("to").Value,
+                              Entry.Attribute("id").Value
+                            )
+                        {
+                            Description = Entry.Value
+                        };
+            return item;
         }
 
         public List<Entry> GetAll()
         {
-            var entries = from entry in _rootElement.Descendants("entry")
-                          select entry;
-            throw new NotImplementedException();
-            // return entries.ToList<Entry>();
-            // TODO 
-            // - Objekt erstellen
-            // - Liste zurückgeben
+            var entries = from Entry in this._rootElement.Descendants("Entry")
+                          select new Entry(
+                              Convert.ToDateTime(Entry.Attribute("start").Value),
+                              Convert.ToDateTime(Entry.Attribute("end").Value),
+                              (int)Entry.Attribute("startKm"),
+                              (int)Entry.Attribute("endKm"),
+                              Entry.Attribute("numberPlate").Value,
+                              Entry.Attribute("from").Value,
+                              Entry.Attribute("to").Value,
+                              Entry.Attribute("id").Value
+                              )
+                          {
+                              Description = Entry.Value
+                          };
+            // TODO
+            // Objekt Entry erstellen
+            // Liste zurückgeben
+            //return entries;
+            //throw new NotImplementedException();
+            return entries.ToList<Entry>();
         }
 
         public bool Save()
@@ -103,7 +131,28 @@ namespace LogBook.Lib
 
         public bool Update(Entry entry)
         {
-            throw new NotImplementedException();
+            var item = (from e in _rootElement.Descendants("entry")
+                        where (string)e.Attribute("id") == entry.ID
+                        select e).FirstOrDefault();
+
+            if (item != null)
+            {
+                item.SetAttributeValue("start", entry.Start.ToString());
+                item.SetAttributeValue("end", entry.End.ToString());
+                item.SetAttributeValue("startKm", entry.StartKM.ToString());
+                item.SetAttributeValue("endKm", entry.EndKM.ToString());
+                item.SetAttributeValue("numberPlate", entry.NumberPlate.ToString());
+                item.SetAttributeValue("to", entry.To.ToString());
+                item.SetAttributeValue("from", entry.From.ToString());
+
+                // id nicht, da sonst das Elemtn nicht mehr gefunden wird
+
+                return this.Save();
+            }
+            else
+            {
+                return false;
+            }
         }
 
         
