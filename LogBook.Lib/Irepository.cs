@@ -15,6 +15,13 @@ public interface Irepository
     bool Update(Entry entry);
 
     bool Save();
+    /// <summary>
+    /// Search for an Entry
+    /// </summary>
+    /// <param name="id">the id to search</param>
+    /// <returns></returns>
+
+    Entry Find(string id);
 
     List<Entry> GetAll();
 }
