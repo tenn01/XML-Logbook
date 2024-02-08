@@ -71,6 +71,11 @@ namespace LogBook.Lib
             return this.Save();
         }
 
+        public Entry? Find(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Entry> GetAll()
         {
             var entries = from entry in _rootElement.Descendants("entry")

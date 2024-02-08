@@ -21,7 +21,7 @@ public interface Irepository
     /// <param name="id">the id to search</param>
     /// <returns></returns>
 
-    Entry Find(string id);
+    Entry? Find(string id);
 
     List<Entry> GetAll();
 }
