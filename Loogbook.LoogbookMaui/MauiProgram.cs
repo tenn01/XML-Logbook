@@ -1,4 +1,5 @@
-﻿using Loogbook.LoogbookMaui.ViewModel;
+﻿using LogBook.Lib;
+using Loogbook.LoogbookMaui.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace Loogbook.LoogbookMaui
@@ -18,6 +19,16 @@ namespace Loogbook.LoogbookMaui
 
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
+
+            System.Diagnostics.Debug.WriteLine("Pfad: ");
+            string path = FileSystem.Current.AppDataDirectory;
+            string filename = "data.xml";
+
+            string fullpath = System.IO.Path.Combine(path, filename);
+            
+            System.Diagnostics.Debug.WriteLine(fullpath);
+
+            builder.Services.AddSingleton<Irepository>(new xmlRepository(fullpath));
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
