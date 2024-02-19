@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using LogBook.Lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace Loogbook.LoogbookMaui.ViewModel
 {
-    public partial class  MainViewModel : ObservableObject
+    public partial class  MainViewModel(Irepository repository) : ObservableObject
     {
         public string Header => "Fahrtenbuch";
+        Irepository _repository = repository;
+
+        
     }
 }
