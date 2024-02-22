@@ -30,6 +30,7 @@
                     <Label Text="Es wurde keine Fahrt hinzugefügt."/>
                 </CollectionView.EmptyView>
             </CollectionView>
+            
         </Grid>
 
         </Grid>
