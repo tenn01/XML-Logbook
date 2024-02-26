@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Loogbook.LoogbookMaui.ViewModel
 {
     public partial class  MainViewModel(Irepository repository) : ObservableObject
@@ -18,6 +19,39 @@ namespace Loogbook.LoogbookMaui.ViewModel
 
         [ObservableProperty]
         ObservableCollection<LogBook.Lib.Entry> _entries = [];
+
+        #region Properties
+
+        [ObservableProperty]
+        DateTime _start = DateTime.Now;
+
+        [ObservableProperty]
+        DateTime _end = DateTime.Now;
+
+        [ObservableProperty]
+        string _description = string.Empty;
+
+        [ObservableProperty]
+        string _numberPlate = string.Empty;
+
+        [ObservableProperty]
+        int _startKM = 0;
+
+        [ObservableProperty]
+        int _endKM = 0;
+
+        [ObservableProperty]
+        string _from = string.Empty;
+
+        [ObservableProperty]
+        string _to = string.Empty;
+
+
+
+
+
+
+        #endregion
 
 
         [RelayCommand]
