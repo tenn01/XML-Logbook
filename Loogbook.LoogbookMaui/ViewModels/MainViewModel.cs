@@ -29,6 +29,7 @@ namespace Loogbook.LoogbookMaui.ViewModel
         DateTime _end = DateTime.Now;
 
         [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(AddCommand))]
         string _description = string.Empty;
 
         [ObservableProperty]
@@ -65,7 +66,9 @@ namespace Loogbook.LoogbookMaui.ViewModel
             }
         }
 
-        [RelayCommand]
+        private bool CanAdd =>this.Description.Length > 0;
+
+        [RelayCommand(CanExecute = nameof(CanAdd))]
         void Add()
         {
             /*
