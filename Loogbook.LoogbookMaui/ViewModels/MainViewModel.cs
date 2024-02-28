@@ -68,6 +68,7 @@ namespace Loogbook.LoogbookMaui.ViewModel
         [RelayCommand]
         void Add()
         {
+            /*
             LogBook.Lib.Entry entrySaalfelden = new(
                 DateTime.Now.AddDays(3),
                 DateTime.Now.AddDays(3).AddMinutes(20), 25500, 25514,
@@ -75,12 +76,26 @@ namespace Loogbook.LoogbookMaui.ViewModel
             {
                 Description = "Fahrt nach Saalfelden"
             };
+            */
 
-            var result = _repository.Add(entrySaalfelden);
+            LogBook.Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.NumberPlate, this.From, this.To);
+
+            if(this.Description.Length > 0 )
+            {
+                entry.Description = this.Description;
+            }
+
+            var result = _repository.Add(entry);
             if(result)
             {
-                this.Entries.Add(entrySaalfelden);
+                this.Entries.Add(entry);
+                this.Description = string.Empty;
+                this.From = "";
+                this.To = "";
+                this.StartKM = this.EndKM;
+                this.EndKM = 0;
             }
+            
         }
     }
 }

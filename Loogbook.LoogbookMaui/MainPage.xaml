@@ -77,7 +77,7 @@
             </StackLayout>
             
             <!-- Number plate 3/0 -->
-            <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="0">
+            <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
                 <Label Text="Kennzeichen" />
                 <Entry Text="{Binding NumberPlate}" />
             </StackLayout>
@@ -106,7 +106,9 @@
                 <Entry Text="{Binding To}" />
             </StackLayout>
 
-                <Button Grid.Row="6" Text="demo button" />
+
+            <!-- save 6/0, span: 2 -->
+                <Button Command="{Binding AddCommand}" Text="Fahrt speichern" Grid.Row="6" Grid.ColumnSpan="2" />
 
 
             </Grid>
