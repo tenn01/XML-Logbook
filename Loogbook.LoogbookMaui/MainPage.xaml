@@ -82,17 +82,31 @@
                 <Entry Text="{Binding NumberPlate}" />
             </StackLayout>
 
-            <!-- StartKm plate 4/0 -->
+            <!-- StartKm 4/0 -->
             <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="0">
                 <Label Text="Start-Km" />
                 <Entry Text="{Binding StartKM}" />
             </StackLayout>
 
-            <!-- EndKM plate 4/1 -->
+            <!-- EndKM 4/1 -->
             <StackLayout Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="0">
-                <Label Text="End-Km" />
+                <Label Text="EndKM" />
                 <Entry Text="{Binding EndKM}" />
             </StackLayout>
+
+            <!-- From 5/0 -->
+            <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="0">
+                <Label Text="From" />
+                <Entry Text="{Binding From}" />
+            </StackLayout>
+
+            <!-- To 5/1 -->
+            <StackLayout Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="0">
+                <Label Text="To" />
+                <Entry Text="{Binding To}" />
+            </StackLayout>
+
+                <Button Grid.Row="6" Text="demo button" />
 
 
             </Grid>
