@@ -20,6 +20,9 @@ namespace Loogbook.LoogbookMaui.ViewModel
         [ObservableProperty]
         ObservableCollection<LogBook.Lib.Entry> _entries = [];
 
+        [ObservableProperty]
+        LogBook.Lib.Entry _selectedEntry = null;
+
         #region Properties
 
         [ObservableProperty]
