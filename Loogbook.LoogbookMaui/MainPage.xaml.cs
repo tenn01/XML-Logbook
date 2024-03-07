@@ -1,4 +1,4 @@
-﻿using Loogbook.LoogbookMaui.ViewModel;
+﻿using Loogbook.LoogbookCore.ViewModel;
 
 namespace Loogbook.LoogbookMaui
 {

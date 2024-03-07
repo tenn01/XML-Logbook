@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Maui;
 using LogBook.Lib;
-using Loogbook.LoogbookMaui.ViewModel;
+using LogBook.LogbookCore.ViewModel;
+using Loogbook.LoogbookCore.ViewModel;
+using Loogbook.LoogbookMaui.Pages;
 using Microsoft.Extensions.Logging;
 
 namespace Loogbook.LoogbookMaui
@@ -21,6 +23,9 @@ namespace Loogbook.LoogbookMaui
 
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
+
+            builder.Services.AddSingleton<ReportViewModel>();
+            builder.Services.AddSingleton<ReportPage>();
 
             System.Diagnostics.Debug.WriteLine("Pfad: ");
             string path = FileSystem.Current.AppDataDirectory;

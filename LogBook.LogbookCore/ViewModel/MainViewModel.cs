@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Loogbook.LoogbookMaui.ViewModel
+namespace Loogbook.LoogbookCore.ViewModel
 {
     public partial class  MainViewModel(Irepository repository) : ObservableObject
     {
