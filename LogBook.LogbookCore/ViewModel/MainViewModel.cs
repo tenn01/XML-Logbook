@@ -1,21 +1,25 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LogBook.Lib;
+using LogBook.LogbookCore.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 
 namespace Loogbook.LoogbookCore.ViewModel
 {
-    public partial class  MainViewModel(Irepository repository) : ObservableObject
+    public partial class  MainViewModel(Irepository repository, IAlertService alertService) : ObservableObject
     {
         public string Header => "Fahrtenbuch";
         Irepository _repository = repository;
+        IAlertService _alertService = alertService;
+        private bool _isLoaded = false;
 
         [ObservableProperty]
         ObservableCollection<LogBook.Lib.Entry> _entries = [];
@@ -59,13 +63,52 @@ namespace Loogbook.LoogbookCore.ViewModel
 
 
         [RelayCommand]
+        void Delete(LogBook.Lib.Entry entry)
+        {
+            LogBook.Lib.Entry entryToDelete = _repository.Find(entry.ID);
+
+            if (entryToDelete != null)
+            {
+                var res = _repository.Delete(entryToDelete);
+
+                if(res)
+                {
+                    this.SelectedEntry = null;
+                    this.Entries.Remove(entry);
+
+                    _alertService.ShowAlert("Erfolg", "Der Eintrag wurde gelöscht");
+                }
+                else
+                {
+                    // alert not possible to delete from repository
+                    _alertService.ShowAlert("Fehler", "Der Eintrag konnte nicht gelöscht werden!");
+                }
+            }
+            else
+            {
+                // alert not found
+                _alertService.ShowAlert("Fehler", "Der Eintrag konnnte nicht gefunden werden");
+            }
+        }
+
+
+        [RelayCommand]
         void LoadData()
         {
-            var entries = _repository.GetAll();
+            // Entries.Clear();
 
-            foreach(var entry in entries)
+            if (!_isLoaded)
             {
-                Entries.Add(entry);
+
+
+                var entries = _repository.GetAll();
+
+                foreach (var entry in entries)
+                {
+                    Entries.Add(entry);
+                }
+
+                _isLoaded = true;
             }
         }
 

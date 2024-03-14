@@ -15,10 +15,10 @@
 
     <TabBar>
         <Tab Title="Fahrtenbuch">
-            <ShellContent
+            <ShellContent Icon="list.png"
                 ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
-        <Tab Title="Bericht">
+        <Tab Title="Bericht" Icon="chart.png">
             <ShellContent
                 ContentTemplate="{DataTemplate pages:ReportPage}" />
         </Tab>

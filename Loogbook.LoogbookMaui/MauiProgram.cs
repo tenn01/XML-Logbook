@@ -1,9 +1,12 @@
 ﻿using CommunityToolkit.Maui;
 using LogBook.Lib;
+using LogBook.LogbookCore.Services;
 using LogBook.LogbookCore.ViewModel;
 using Loogbook.LoogbookCore.ViewModel;
 using Loogbook.LoogbookMaui.Pages;
+using Loogbook.LoogbookMaui.Services;
 using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace Loogbook.LoogbookMaui
 {
@@ -15,6 +18,7 @@ namespace Loogbook.LoogbookMaui
             builder
                 .UseMauiApp<App>()
                 .UseMauiCommunityToolkit()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -36,6 +40,8 @@ namespace Loogbook.LoogbookMaui
             System.Diagnostics.Debug.WriteLine(fullpath);
 
             builder.Services.AddSingleton<Irepository>(new xmlRepository(fullpath));
+            builder.Services.AddSingleton<IAlertService, AlertService>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

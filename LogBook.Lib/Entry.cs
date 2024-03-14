@@ -15,6 +15,8 @@
 
         public int EndKM { get; set; }
 
+        public int Distance => EndKM - StartKM;
+
         public string NumberPlate { get; set; }
 
         public string From { get; set; }
