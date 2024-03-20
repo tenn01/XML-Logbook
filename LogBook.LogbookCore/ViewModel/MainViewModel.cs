@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using LogBook.Lib;
+using LogBook.LogbookCore.Messages;
 using LogBook.LogbookCore.Services;
 using System;
 using System.Collections.Generic;
@@ -143,6 +145,8 @@ namespace Loogbook.LoogbookCore.ViewModel
                 this.To = "";
                 this.StartKM = this.EndKM;
                 this.EndKM = 0;
+
+                WeakReferenceMessenger.Default.Send(new AddMessage(entry));
             }
             
         }

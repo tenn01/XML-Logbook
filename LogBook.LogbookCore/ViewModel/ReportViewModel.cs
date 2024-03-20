@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using LogBook.Lib;
+using LogBook.LogbookCore.Messages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +19,15 @@ namespace LogBook.LogbookCore.ViewModel
         public ReportViewModel(Irepository repository)
         { 
             _repository = repository;
+
+            WeakReferenceMessenger.Default.Register<AddMessage>(this, (r,m) =>
+            {
+                // m.Value: user Entry-Objekt
+                System.Diagnostics.Debug.WriteLine(m.Value);
+
+                // add to list
+                this.Entries.Add(m.Value);
+            });
         }
 
         private bool _isLoaded = false;

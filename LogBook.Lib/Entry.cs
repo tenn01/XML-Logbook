@@ -5,6 +5,8 @@
     /// </summary>
     public class Entry
     {
+        public bool Favourite { get; set; } = false;
+
         public string Description { get; set; } = string.Empty;
 
         public DateTime Start { get; set; }
@@ -28,7 +30,7 @@
         /// </summary>
         public string ID { get; set; }
 
-        public Entry(DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to, string id)
+        public Entry(DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to, bool favourite, string id)
         {
             this.ID = id;
             this.Start = start;
@@ -38,8 +40,9 @@
             this.NumberPlate = numberplate;
             this.From = from;
             this.To = to;
+            this.Favourite = favourite;
         }
-        public Entry( DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to)
+        public Entry( DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to, bool favourite)
         {
             this.ID = Guid.NewGuid().ToString();
             this.Start = start;
@@ -49,6 +52,7 @@
             this.NumberPlate = numberplate;
             this.From = from;
             this.To = to;
+            this.Favourite = favourite;
         }
         public override string ToString()
         {
