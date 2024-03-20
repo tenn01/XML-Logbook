@@ -64,6 +64,30 @@ namespace Loogbook.LoogbookCore.ViewModel
         #endregion
 
 
+        void ToggleFavourite(LogBook.Lib.Entry entry)
+        {
+            entry.Favourite = !entry.Favourite;
+
+            var result = _repository.Update(entry);
+
+            if(result)
+            {
+                int pos = this.Entries.IndexOf(entry);
+
+                if(pos != -1)
+                {
+                    this.Entries[pos] = entry;
+                    _alertService.ShowAlert("Erfolg", "Der Status wurde verändert");
+                }
+                else
+                {
+                    _alertService.ShowAlert("Fehler", "Der Status konnte nicht verändert werden.");
+                }
+            }
+        }
+
+
+
         [RelayCommand]
         void Delete(LogBook.Lib.Entry entry)
         {
@@ -129,7 +153,7 @@ namespace Loogbook.LoogbookCore.ViewModel
             };
             */
 
-            LogBook.Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.NumberPlate, this.From, this.To);
+            LogBook.Lib.Entry entry = new(this.Start, this.End, this.StartKM, this.EndKM, this.NumberPlate, this.From, this.To, false);
 
             if(this.Description.Length > 0 )
             {
