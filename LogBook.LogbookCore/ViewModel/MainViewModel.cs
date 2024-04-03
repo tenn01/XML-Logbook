@@ -63,7 +63,7 @@ namespace Loogbook.LoogbookCore.ViewModel
 
         #endregion
 
-
+        [RelayCommand]
         void ToggleFavourite(LogBook.Lib.Entry entry)
         {
             entry.Favourite = !entry.Favourite;
