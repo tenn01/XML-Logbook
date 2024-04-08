@@ -33,13 +33,15 @@ namespace Loogbook.LoogbookMaui
 
             System.Diagnostics.Debug.WriteLine("Pfad: ");
             string path = FileSystem.Current.AppDataDirectory;
-            string filename = "data.xml";
+            string filename = "data.sql";
 
             string fullpath = System.IO.Path.Combine(path, filename);
             
             System.Diagnostics.Debug.WriteLine(fullpath);
 
-            builder.Services.AddSingleton<Irepository>(new xmlRepository(fullpath));
+            // builder.Services.AddSingleton<Irepository>(new xmlRepository(fullpath));
+            builder.Services.AddSingleton<Irepository>(new Sqliterepository(fullpath));
+
             builder.Services.AddSingleton<IAlertService, AlertService>();
 
 #if DEBUG

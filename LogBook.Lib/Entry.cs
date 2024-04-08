@@ -5,7 +5,7 @@
     /// </summary>
     public class Entry
     {
-        public bool Favourite { get; set; } = false;
+        public bool Favorite { get; set; } = false;
 
         public string Description { get; set; } = string.Empty;
 
@@ -28,31 +28,31 @@
         /// <summary>
         /// Id of an entry
         /// </summary>
-        public string ID { get; set; }
+        public string Id { get; set; }
 
-        public Entry(DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to, bool favourite, string id)
+        public Entry(DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to, bool favorite, string id)
         {
-            this.ID = id;
+            this.Id = id;
             this.Start = start;
             this.End = end;
-            this.StartKM = startkm;
-            this.EndKM = endkm;
-            this.NumberPlate = numberplate;
+            this.StartKM = startKM;
+            this.EndKM = endKM;
+            this.NumberPlate = numberPlate;
             this.From = from;
             this.To = to;
-            this.Favourite = favourite;
+            this.Favorite = favorite;
         }
-        public Entry( DateTime start, DateTime end, int startkm, int endkm, string numberplate, string from, string to, bool favourite)
+        public Entry( DateTime start, DateTime end, int startKM, int endKM, string numberPlate, string from, string to, bool favorite)
         {
-            this.ID = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             this.Start = start;
             this.End = end;
-            this.StartKM = startkm;
-            this.EndKM = endkm;
-            this.NumberPlate = numberplate;
+            this.StartKM = startKM;
+            this.EndKM = endKM;
+            this.NumberPlate = numberPlate;
             this.From = from;
             this.To = to;
-            this.Favourite = favourite;
+            this.Favorite = favorite;
         }
         public override string ToString()
         {

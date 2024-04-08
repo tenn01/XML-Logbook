@@ -30,7 +30,7 @@ public class xmlRepository : Irepository
     {
         XElement node = new XElement("entry");
 
-        var idAtrib = new XAttribute("id", entry.ID.ToString());
+        var idAtrib = new XAttribute("id", entry.Id.ToString());
         node.Add(idAtrib);
 
         var startAtrib = new XAttribute("start", entry.Start.ToString());
@@ -54,7 +54,7 @@ public class xmlRepository : Irepository
         var toAtrib = new XAttribute("to", entry.To.ToString());
         node.Add(toAtrib);
 
-        var favouriteAttrib = new XAttribute("favourite", entry.Favourite.ToString());
+        var favouriteAttrib = new XAttribute("favourite", entry.Favorite.ToString());
         node.Add(favouriteAttrib);
 
         node.Add(entry.Description.ToString());
@@ -68,7 +68,7 @@ public class xmlRepository : Irepository
     public bool Delete(Entry entry)
     {
         var itemsDel = from i in _rootElement.Descendants("entry")
-                       where (string)i.Attribute("id") == entry.ID
+                       where (string)i.Attribute("id") == entry.Id
                        select i;
         itemsDel.Remove();
         return this.Save();
@@ -142,7 +142,7 @@ public class xmlRepository : Irepository
     public bool Update(Entry entry)
     {
         var item = (from e in _rootElement.Descendants("entry")
-                    where (string)e.Attribute("id") == entry.ID
+                    where (string)e.Attribute("id") == entry.Id
                     select e).FirstOrDefault();
 
         if (item != null)
@@ -154,7 +154,7 @@ public class xmlRepository : Irepository
             item.SetAttributeValue("numberplate", entry.NumberPlate.ToString());
             item.SetAttributeValue("to", entry.To.ToString());
             item.SetAttributeValue("from", entry.From.ToString());
-            item.SetAttributeValue("favourite", entry.Favourite.ToString());
+            item.SetAttributeValue("favourite", entry.Favorite.ToString());
 
             // id nicht, da sonst das Element nicht mehr gefunden wird
 

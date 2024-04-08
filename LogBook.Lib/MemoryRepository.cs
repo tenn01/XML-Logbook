@@ -40,7 +40,7 @@ namespace LogBook.Lib
         public bool Update(Entry entry)
         {
             var item =  (from search in list
-                             where entry.ID == search.ID
+                             where entry.Id == search.Id
                              select search).FirstOrDefault();
 
             if (item != null)
@@ -54,7 +54,7 @@ namespace LogBook.Lib
 
         public Entry? Find(string id)
         {
-            var entries = from e in  list where e.ID == id
+            var entries = from e in  list where e.Id == id
                           select e;
             return entries.FirstOrDefault();
         }

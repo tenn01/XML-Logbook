@@ -52,7 +52,7 @@
                         <Grid ColumnDefinitions="80,100,2*,*,*">
                             
                             
-                            <Image VerticalOptions="Center" Source="star.png" IsVisible="{Binding Favourite}" HeightRequest="15" HorizontalOptions="Center">
+                            <Image VerticalOptions="Center" Source="star.png" IsVisible="{Binding Favorite}" HeightRequest="15" HorizontalOptions="Center">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={
                                             RelativeSource AncestorType={
@@ -64,7 +64,7 @@
                                 </Image.GestureRecognizers>
                             </Image>
 
-                                <Image VerticalOptions="Center" Source="star_empty.png" IsVisible="{Binding Favourite, Converter={StaticResource InvertedBoolConverter}}" HeightRequest="15" HorizontalOptions="Center">
+                                <Image VerticalOptions="Center" Source="star_empty.png" IsVisible="{Binding Favorite, Converter={StaticResource InvertedBoolConverter}}" HeightRequest="15" HorizontalOptions="Center">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Source={
                                             RelativeSource AncestorType={

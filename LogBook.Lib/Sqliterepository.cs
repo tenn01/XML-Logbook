@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,31 +18,109 @@ public class Sqliterepository : Irepository
 
     public bool Add(Entry entry)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using(var context = new EntriesContext(_path))
+            {
+                context.Add(entry);
+
+                context.SaveChanges();
+                return true;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return false;
+        }
     }
 
     public bool Delete(Entry entry)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var context = new EntriesContext(_path))
+            {
+                context.Database.ExecuteSqlRaw($"DELETE FROM Entries WHERE Id={entry.Id}", entry.Id);
+
+                
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return false;
+        }
     }
 
     public Entry? Find(string id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var context = new EntriesContext(_path))
+            {
+                var find = (from entry in context.Entries
+                               where entry.Id == id
+                               select entry).FirstOrDefault();
+
+
+                return find;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return null;
+        }
     }
 
     public List<Entry> GetAll()
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var context = new EntriesContext(_path))
+            {
+                // var to = "Saalfelden";
+
+                var entries = context.Entries.FromSql($"SELECT * FROM Entries").ToList();
+
+                return entries;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return new List<Entry>();
+        }
     }
 
     public bool Save()
     {
-        throw new NotImplementedException();
+        return true;
     }
 
     public bool Update(Entry entry)
     {
-        throw new NotImplementedException();
+        try
+        {
+            using (var context = new EntriesContext(_path))
+            {
+                context.Entry(entry).State = EntityState.Modified;
+
+                context.SaveChanges();
+
+                return true;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine(ex.Message);
+            return false;
+        }
     }
 }

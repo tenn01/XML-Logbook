@@ -66,7 +66,7 @@ namespace Loogbook.LoogbookCore.ViewModel
         [RelayCommand]
         void ToggleFavourite(LogBook.Lib.Entry entry)
         {
-            entry.Favourite = !entry.Favourite;
+            entry.Favorite = !entry.Favorite;
 
             var result = _repository.Update(entry);
 
@@ -91,7 +91,7 @@ namespace Loogbook.LoogbookCore.ViewModel
         [RelayCommand]
         void Delete(LogBook.Lib.Entry entry)
         {
-            LogBook.Lib.Entry entryToDelete = _repository.Find(entry.ID);
+            LogBook.Lib.Entry entryToDelete = _repository.Find(entry.Id);
 
             if (entryToDelete != null)
             {
