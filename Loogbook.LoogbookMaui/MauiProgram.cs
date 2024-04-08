@@ -33,7 +33,7 @@ namespace Loogbook.LoogbookMaui
 
             System.Diagnostics.Debug.WriteLine("Pfad: ");
             string path = FileSystem.Current.AppDataDirectory;
-            string filename = "data.sql";
+            string filename = "data.csv";
 
             string fullpath = System.IO.Path.Combine(path, filename);
             
