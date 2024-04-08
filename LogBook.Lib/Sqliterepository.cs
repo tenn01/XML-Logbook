@@ -42,7 +42,7 @@ public class Sqliterepository : Irepository
         {
             using (var context = new EntriesContext(_path))
             {
-                context.Database.ExecuteSqlRaw($"DELETE FROM Entries WHERE Id={entry.Id}", entry.Id);
+                context.Database.ExecuteSqlRaw("DELETE FROM Entries WHERE Id={0}", entry.Id);
 
                 
             }
